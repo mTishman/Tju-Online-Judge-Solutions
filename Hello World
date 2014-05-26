@@ -1,0 +1,14 @@
+import java.util.Scanner;
+
+public class HelloWorld {
+	public static void main(final String args[]) {
+		Scanner input = new Scanner(System.in);
+		int asciiValue;
+		while (input.hasNextInt()) {
+			asciiValue = input.nextInt();
+			System.out.print((char) asciiValue); // converts the USASCII
+													                 // into chars
+		}
+		input.close();
+	}
+}
