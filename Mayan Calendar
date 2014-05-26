@@ -1,0 +1,38 @@
+import java.util.Scanner;
+import java.util.Arrays;
+public class Main { //MAYAN CALENDER
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		input.useDelimiter("[.\\s]+");
+		
+		final int numberofDates = input.nextInt();            // first line imput
+		final int[] numberDayHaab = new int[numberofDates];   // Number of the Haab Day
+		final String[] monthHaab = new String[numberofDates]; //Name of the Haab Month
+		final int[] yearHaab = new int[numberofDates];        // Number of the Haab Year
+		final int[] Days = new int[numberofDates];
+		
+		final String[] tzolkinDays = {"imix", "ik", "akbal", "kan", "chicchan","cimi", "manik", "lamat", "muluk",
+						"ok", "chuen", "eb", "ben" , "ix", "mem", "cib", "caban", "eznab", "canac", "ahau"};
+		final String[] haabMonths = {"pop", "no", "zip", "zotz", "tzec","xul","yoxkin", "mol", "chen", "yax", "zac", 
+						"ceh", "mac","kankin","muan","pax","koyab","cumhu", "uayet"	};
+						
+		//inputing the Haab Dates.
+		for (int i=0; i<numberofDates; i++){ //i=0 is the line Date
+			numberDayHaab[i] = input.nextInt();
+			monthHaab[i] = input.next();
+			yearHaab[i] = input.nextInt();
+			Days[i] = ((yearHaab[i]*365)+(Arrays.asList(haabMonths).indexOf(monthHaab[i]))*20)+numberDayHaab[i];
+		}
+		
+		System.out.println(numberofDates);
+		for (int i=0; i<numberofDates;i++){
+			
+			System.out.print(Days[i]%13+1 + " "); //prints Number Tzolkin Day
+			System.out.print(tzolkinDays[Days[i]%20]+" "); //prints Name Tzolkin Day	
+			System.out.println(Days[i]/260);//prints Tzolkin year
+		}
+		
+	}
+	
+}
